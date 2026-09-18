@@ -4,6 +4,7 @@ use sqlx::{FromRow, Type};
 use uuid::Uuid;
 
 #[derive(Debug, Type, Deserialize, Serialize)]
+#[sqlx(type_name = "machine_status")]
 #[sqlx(rename_all = "lowercase")]
 #[serde(rename_all = "lowercase")]
 pub enum MachineStatus {
@@ -13,6 +14,7 @@ pub enum MachineStatus {
 }
 
 #[derive(Debug, Type, Deserialize, Serialize)]
+#[sqlx(type_name = "claw_size")]
 #[sqlx(rename_all = "lowercase")]
 #[serde(rename_all = "lowercase")]
 pub enum ClawSize {
@@ -32,8 +34,8 @@ pub struct Machine {
     pub status_machine: MachineStatus,     // estado de la maquina (NOT NULL)
     pub coin_acceptors: i16,               // numero de aceptadores de monedas (NOT NULL)
     pub bill_acceptor: i16,                // numero de aceptadores de billetes (NOT NULL)
-    pub plays_per_plush: Option<u8>,       // numero de jugadas por peluche (NULL)
-    pub credit_cost_per_play: Option<f64>, // costo por jugada (NULL)
+    pub plays_per_plush: Option<i16>,      // numero de jugadas por peluche (NULL)
+    pub credit_cost_per_play: Option<i16>, // costo por jugada (NULL)
     pub img_url: Option<String>,           // url de la imagen (NULL)
     pub purchase_date: Option<NaiveDate>,  // fecha de compra (NULL)
 }
