@@ -24,7 +24,7 @@ pub enum ClawSize {
 }
 
 #[derive(Debug, FromRow, Serialize, Deserialize)]
-#[allow(dead_code)] //solo para quitar las alertas y trabajar quitar una vez que se lean individualmente
+//#[allow(dead_code)] //solo para quitar las alertas y trabajar quitar una vez que se lean individualmente
 pub struct Machine {
     pub id: Uuid,                          // identificador o codigo (NOT NULL)
     pub model: String,                     // modelo (NOT NULL)
